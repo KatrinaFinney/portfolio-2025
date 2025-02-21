@@ -15,6 +15,7 @@ const projects: Project[] = [
     title: "Vivea Health",
     description: "An AI-powered health app with intelligent chart summarization.",
     githubLink: "https://github.com/katrinafinney/vivea-health",
+    liveLink: "https://viveahealth.co",
     demoLink: "https://www.canva.com/design/DAGfoKQZLs0/c1KAMUoGS37oX8dfcpjYjA/watch?utm_content=DAGfoKQZLs0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb80e19fb0f",
   },
   {
