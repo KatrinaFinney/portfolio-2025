@@ -1,14 +1,12 @@
-"use client";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; // ✅ Removed useState
 import { Tooltip } from "react-tooltip";
 
 interface Project {
   title: string;
   description: string;
   githubLink?: string;
-  liveLink?: string;
   demoLink?: string;
+  liveAppLink?: string;
 }
 
 const projects: Project[] = [
@@ -16,19 +14,22 @@ const projects: Project[] = [
     title: "Vivea Health",
     description: "An AI-powered health app with intelligent chart summarization.",
     githubLink: "https://github.com/katrinafinney/vivea-health",
-    liveLink: "https://viveahealth.co",
-    demoLink: "https://www.canva.com/design/DAGfoKQZLs0/c1KAMUoGS37oX8dfcpjYjA/watch?utm_content=DAGfoKQZLs0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb80e19fb0f",
+    demoLink: "https://www.canva.com/design/DAGfoKQZLs0/c1KAMUoGS37oX8dfcpjYjA/watch",
+    liveAppLink: "https://viveahealth.co", // If empty, it will be greyed out with a tooltip
   },
   {
     title: "iCapsule.me",
     description: "A blockchain-powered personal blogging platform with AI.",
     githubLink: "",
-    liveLink: "",
+    demoLink: "",
+    liveAppLink: "",
   },
   {
     title: "Ulitigate",
     description: "AI-assisted legal information platform with geolocation features.",
     githubLink: "",
+    demoLink: "",
+    liveAppLink: "",
   },
 ];
 
@@ -46,49 +47,70 @@ export default function FeaturedProjects() {
             <h3 className="text-xl font-semibold text-white">{project.title}</h3>
             <p className="mt-2 text-gray-400">{project.description}</p>
 
-            <div className="mt-4 flex flex-col space-y-2">
-              <a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`px-4 py-2 text-sm font-semibold rounded-lg transition ${
-                  project.githubLink ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-gray-600 text-gray-400 cursor-not-allowed"
-                }`}
-                data-tooltip-id={project.githubLink ? "" : `tooltip-github-${index}`}
-              >
-                View Code
-              </a>
-              <Tooltip id={`tooltip-github-${index}`} place="top" content="GitHub repository coming soon!" />
+            {/* Buttons Section */}
+            <div className="flex flex-col items-center mt-4 space-y-2">
+              {project.githubLink ? (
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-teal-500 px-4 py-2 rounded-lg text-white font-semibold hover:bg-teal-600 transition"
+                >
+                  View Code
+                </a>
+              ) : (
+                <button
+                  className="bg-gray-500 px-4 py-2 rounded-lg text-white font-semibold cursor-not-allowed"
+                  data-tooltip-id="tooltip-github"
+                >
+                  View Code
+                </button>
+              )}
 
-              <a
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`px-4 py-2 text-sm font-semibold rounded-lg transition ${
-                  project.liveLink ? "bg-green-500 text-white hover:bg-green-600" : "bg-gray-600 text-gray-400 cursor-not-allowed"
-                }`}
-                data-tooltip-id={project.liveLink ? "" : `tooltip-live-${index}`}
-              >
-                View App
-              </a>
-              <Tooltip id={`tooltip-live-${index}`} place="top" content="This app is currently in development!" />
+              {project.demoLink ? (
+                <a
+                  href={project.demoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-purple-500 px-4 py-2 rounded-lg text-white font-semibold hover:bg-purple-600 transition"
+                >
+                  Watch Demo
+                </a>
+              ) : (
+                <button
+                  className="bg-gray-500 px-4 py-2 rounded-lg text-white font-semibold cursor-not-allowed"
+                  data-tooltip-id="tooltip-demo"
+                >
+                  Watch Demo
+                </button>
+              )}
 
-              <a
-                href={project.demoLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`px-4 py-2 text-sm font-semibold rounded-lg transition ${
-                  project.demoLink ? "bg-purple-500 text-white hover:bg-purple-600" : "bg-gray-600 text-gray-400 cursor-not-allowed"
-                }`}
-                data-tooltip-id={project.demoLink ? "" : `tooltip-demo-${index}`}
-              >
-                Watch Demo
-              </a>
-              <Tooltip id={`tooltip-demo-${index}`} place="top" content="A demo video will be available soon!" />
+              {project.liveAppLink ? (
+                <a
+                  href={project.liveAppLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-500 px-4 py-2 rounded-lg text-white font-semibold hover:bg-blue-600 transition"
+                >
+                  View App
+                </a>
+              ) : (
+                <button
+                  className="bg-gray-500 px-4 py-2 rounded-lg text-white font-semibold cursor-not-allowed"
+                  data-tooltip-id="tooltip-live"
+                >
+                  View App
+                </button>
+              )}
             </div>
           </motion.div>
         ))}
       </div>
+
+      {/* Tooltip Explanations */}
+      <Tooltip id="tooltip-github" content="Coming soon" place="top" />
+      <Tooltip id="tooltip-demo" content="Demo not available yet" place="top" />
+      <Tooltip id="tooltip-live" content="Live app not available yet" place="top" />
     </div>
   );
 }
