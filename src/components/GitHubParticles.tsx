@@ -44,8 +44,8 @@ export default function GitHubParticles() {
             key={repo.id}
             position={[Math.random() * 6 - 3, Math.random() * 6 - 3, Math.random() * 6 - 3]}
             onClick={() => router.push(repo.html_url)}
-            onPointerOver={(e) => (document.body.style.cursor = "pointer")}
-            onPointerOut={(e) => (document.body.style.cursor = "default")}
+            onPointerOver={(_e) => (document.body.style.cursor = "pointer")}
+            onPointerOut={(_e) => (document.body.style.cursor = "default")}
           >
             <Sphere args={[0.3, 32, 32]}>
               <MeshDistortMaterial
