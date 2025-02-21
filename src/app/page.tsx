@@ -56,14 +56,16 @@ export default function Home() {
 
           {/* CTA Buttons */}
           <div className="mt-6 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+           <a
+            href="/resume.pdf"
+            download="Katrina_Finney_Resume.pdf"
+            className="px-6 py-3 bg-gradient-to-r from-teal-400 to-blue-600 text-white text-lg font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
+          >
+            View Resume
+          </a>
+
             <a
-              href="/resume.pdf"
-              className="px-6 py-3 bg-gradient-to-r from-teal-400 to-blue-600 text-white text-lg font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
-            >
-              View Resume
-            </a>
-            <a
-              href="#contact"
+              href="mailto:katrinafinney@gmail.com"
               className="px-6 py-3 border-2 border-teal-400 text-teal-400 text-lg font-semibold rounded-lg hover:bg-teal-400 hover:text-gray-900 transition-all duration-300"
             >
               Get in Touch

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Tooltip } from "react-tooltip";
 
 interface Project {
   title: string;
@@ -32,21 +33,9 @@ const projects: Project[] = [
 ];
 
 export default function FeaturedProjects() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalMessage, setModalMessage] = useState("");
-
-  const handleButtonClick = (link: string | undefined, message: string) => {
-    if (link) {
-      window.open(link, "_blank", "noopener noreferrer");
-    } else {
-      setModalMessage(message);
-      setModalOpen(true);
-    }
-  };
-
   return (
     <div className="px-8 py-12">
-      <h2 className="text-3xl font-bold text-teal-400 text-center">Featured Projects</h2>
+      <h2 className="text-3xl font-bold text-teal-400 text-center">Projects</h2>
       <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (
           <motion.div
@@ -58,43 +47,48 @@ export default function FeaturedProjects() {
             <p className="mt-2 text-gray-400">{project.description}</p>
 
             <div className="mt-4 flex flex-col space-y-2">
-              <button
-                onClick={() => handleButtonClick(project.githubLink, "GitHub repository coming soon!")}
-                className="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition"
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-4 py-2 text-sm font-semibold rounded-lg transition ${
+                  project.githubLink ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                }`}
+                data-tooltip-id={project.githubLink ? "" : `tooltip-github-${index}`}
               >
                 View Code
-              </button>
-              <button
-                onClick={() => handleButtonClick(project.liveLink, "This app is currently in development!")}
-                className="px-4 py-2 bg-green-500 text-white text-sm font-semibold rounded-lg hover:bg-green-600 transition"
+              </a>
+              <Tooltip id={`tooltip-github-${index}`} place="top" content="GitHub repository coming soon!" />
+
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-4 py-2 text-sm font-semibold rounded-lg transition ${
+                  project.liveLink ? "bg-green-500 text-white hover:bg-green-600" : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                }`}
+                data-tooltip-id={project.liveLink ? "" : `tooltip-live-${index}`}
               >
                 View App
-              </button>
-              <button
-                onClick={() => handleButtonClick(project.demoLink, "A demo video will be available soon!")}
-                className="px-4 py-2 bg-purple-500 text-white text-sm font-semibold rounded-lg hover:bg-purple-600 transition"
+              </a>
+              <Tooltip id={`tooltip-live-${index}`} place="top" content="This app is currently in development!" />
+
+              <a
+                href={project.demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-4 py-2 text-sm font-semibold rounded-lg transition ${
+                  project.demoLink ? "bg-purple-500 text-white hover:bg-purple-600" : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                }`}
+                data-tooltip-id={project.demoLink ? "" : `tooltip-demo-${index}`}
               >
                 Watch Demo
-              </button>
+              </a>
+              <Tooltip id={`tooltip-demo-${index}`} place="top" content="A demo video will be available soon!" />
             </div>
           </motion.div>
         ))}
       </div>
-
-      {/* Modal for "Coming Soon" */}
-      {modalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-gray-900 p-6 rounded-lg shadow-lg text-center">
-            <p className="text-white text-lg">{modalMessage}</p>
-            <button
-              onClick={() => setModalOpen(false)}
-              className="mt-4 px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
