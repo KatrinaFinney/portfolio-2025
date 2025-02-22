@@ -20,7 +20,7 @@ const projects: Project[] = [
   {
     title: "iCapsule.me",
     description: "A blockchain-powered personal blogging platform with AI.",
-    githubLink: "",
+    githubLink: "https://github.com/KatrinaFinney/icapsule",
     demoLink: "",
     liveAppLink: "",
   },
