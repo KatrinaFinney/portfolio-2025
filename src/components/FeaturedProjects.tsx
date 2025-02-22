@@ -27,7 +27,7 @@ const projects: Project[] = [
   {
     title: "Ulitigate",
     description: "AI-assisted legal information platform with geolocation features.",
-    githubLink: "",
+    githubLink: "https://github.com/KatrinaFinney/ulitigate",
     demoLink: "",
     liveAppLink: "",
   },
