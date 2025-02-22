@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; // ✅ Removed useState
+import { Tooltip } from "react-tooltip";
 
 interface Project {
   title: string;
@@ -14,16 +15,21 @@ const projects: Project[] = [
     description: "An AI-powered health app with intelligent chart summarization.",
     githubLink: "https://github.com/katrinafinney/vivea-health",
     demoLink: "https://www.canva.com/design/DAGfoKQZLs0/c1KAMUoGS37oX8dfcpjYjA/watch",
-    liveAppLink: "https://viveahealth.co",
+    liveAppLink: "https://viveahealth.co", // If empty, it will be greyed out with a tooltip
   },
   {
     title: "iCapsule.me",
     description: "A blockchain-powered personal blogging platform with AI.",
     githubLink: "https://github.com/KatrinaFinney/icapsule",
+    demoLink: "",
+    liveAppLink: "",
   },
   {
     title: "Ulitigate",
     description: "AI-assisted legal information platform with geolocation features.",
+    githubLink: "",
+    demoLink: "",
+    liveAppLink: "",
   },
 ];
 
@@ -43,7 +49,7 @@ export default function FeaturedProjects() {
 
             {/* Buttons Section */}
             <div className="flex flex-col items-center mt-4 space-y-2">
-              {project.githubLink && (
+              {project.githubLink ? (
                 <a
                   href={project.githubLink}
                   target="_blank"
@@ -52,9 +58,16 @@ export default function FeaturedProjects() {
                 >
                   View Code
                 </a>
+              ) : (
+                <button
+                  className="bg-gray-500 px-4 py-2 rounded-lg text-white font-semibold cursor-not-allowed"
+                  data-tooltip-id="tooltip-github"
+                >
+                  View Code
+                </button>
               )}
 
-              {project.demoLink && (
+              {project.demoLink ? (
                 <a
                   href={project.demoLink}
                   target="_blank"
@@ -63,9 +76,16 @@ export default function FeaturedProjects() {
                 >
                   Watch Demo
                 </a>
+              ) : (
+                <button
+                  className="bg-gray-500 px-4 py-2 rounded-lg text-white font-semibold cursor-not-allowed"
+                  data-tooltip-id="tooltip-demo"
+                >
+                  Watch Demo
+                </button>
               )}
 
-              {project.liveAppLink && (
+              {project.liveAppLink ? (
                 <a
                   href={project.liveAppLink}
                   target="_blank"
@@ -74,11 +94,23 @@ export default function FeaturedProjects() {
                 >
                   View App
                 </a>
+              ) : (
+                <button
+                  className="bg-gray-500 px-4 py-2 rounded-lg text-white font-semibold cursor-not-allowed"
+                  data-tooltip-id="tooltip-live"
+                >
+                  View App
+                </button>
               )}
             </div>
           </motion.div>
         ))}
       </div>
+
+      {/* Tooltip Explanations */}
+      <Tooltip id="tooltip-github" content="Coming soon" place="top" />
+      <Tooltip id="tooltip-demo" content="Demo not available yet" place="top" />
+      <Tooltip id="tooltip-live" content="Live app not available yet" place="top" />
     </div>
   );
 }
