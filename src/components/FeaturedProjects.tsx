@@ -69,7 +69,6 @@ const projects: Project[] = [
       "Supabase",
     ],
     githubLink: "https://github.com/KatrinaFinney/webtriage",
-    liveAppLink: "https://webtriage.pro",
   },
 ];
 
