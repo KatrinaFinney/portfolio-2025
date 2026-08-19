@@ -29,7 +29,7 @@ const projects: Project[] = [
     githubLink:
       "https://github.com/KatrinaFinney/show-ready-checkout",
     demoLink:
-      "https://www.loom.com/share/2bbf6c4d24db47f79bed83fa9c9869f2",
+    "https://www.loom.com/share/2304aba82efc44349e51e69581935821",
   },
   {
     title: "Vivea Health",
