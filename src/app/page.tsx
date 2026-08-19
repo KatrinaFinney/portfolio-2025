@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import GitHubParticles from "@/components/GitHubParticles";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import ContactSection from "@/components/ContactSection";
+import LinkedInShowcase from "@/components/LinkedInShowcase";
 
 export default function Home() {
   return (
@@ -51,7 +52,8 @@ export default function Home() {
             Katrina Finney
           </h1>
           <p className="text-xl text-gray-300 max-w-lg mt-4 leading-relaxed">
-            Full-Stack Software Engineer | Innovating with AI, Web3 & Next.js
+          Full-Stack Software Engineer building reliable integrations,
+secure APIs, and human-centered products.
           </p>
 
           {/* CTA Buttons */}
@@ -91,23 +93,44 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
         >
-          I’m a <span className="text-teal-400 font-semibold">Full-Stack Software Engineer</span> with a passion for building scalable SaaS applications, integrating AI solutions, and leveraging blockchain for security and permanence.
-        </motion.p>
+           <span className="text-teal-400 font-semibold">I’m a Full-Stack Software Engineer who turns complex systems into
+dependable, understandable experiences. My work spans React and
+TypeScript interfaces, Laravel and Node.js services, API
+integrations, IAM, automation, and technical education.</span> </motion.p>
       </section>
 
       {/* Featured Projects */}
       <section className="py-20 min-h-[400px] flex flex-col justify-center items-center fade-in">
         <FeaturedProjects />
       </section>
+      <section className="py-20 min-h-[400px] flex flex-col justify-center items-center fade-in">
+      <LinkedInShowcase />
+      </section>
+      
+
 
       {/* GitHub Particle Visualization */}
       <section className="relative max-w-5xl mx-auto px-6 h-[600px] fade-in border-glow overflow-hidden">
-        <div className="text-center text-gray-300 max-w-3xl mx-auto mb-4 leading-relaxed">
-          <p>
-            The GitHub visualization below represents my latest repositories and contributions in an interactive 3D space.
-            Each glowing node represents a different project, dynamically pulled from GitHub.
-          </p>
-        </div>
+      <div className="text-center text-gray-300 max-w-3xl mx-auto pt-8 mb-4 leading-relaxed">
+  <p className="text-sm font-semibold tracking-[0.3em] text-purple-300">
+    EXPLORE MY GITHUB
+  </p>
+
+  <h2 className="mt-3 text-4xl font-bold gradient-text">
+    An interactive repository constellation
+  </h2>
+
+  <p>
+    Each glowing node is a live repository from my GitHub profile.
+    Drag to rotate the constellation, scroll or pinch to zoom, and
+    click any node to open that project in a new tab.
+  </p>
+
+  <p className="mt-3 text-sm text-gray-400">
+    Tip: start with the bright pink nodes, then rotate to
+    uncover more projects.
+  </p>
+</div>
 
         <GitHubParticles />
       </section>
