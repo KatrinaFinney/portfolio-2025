@@ -139,7 +139,7 @@ export default function FeaturedProjects() {
               ))}
             </div>
 
-            <div className="mt-auto flex flex-wrap gap-3 pt-7">
+            <div className="mt-auto flex flex-wrap justify-center gap-3 pt-7">
               <a
                 href={project.githubLink}
                 target="_blank"
