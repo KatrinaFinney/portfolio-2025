@@ -56,7 +56,7 @@ const posts = [
                   allowFullScreen
                 />
   
-                <div className="p-4">
+                <div className="p-4 text-center sm:text-left">
                   <a
                     href={post.link}
                     target="_blank"
