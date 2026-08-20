@@ -22,17 +22,17 @@ const posts = [
   export default function LinkedInShowcase() {
     return (
       <section
-        className="bg-gray-800/70 py-20"
+        className="bg-gray-800/70 py-14 sm:py-20"
         aria-labelledby="linkedin-heading"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="text-center text-sm font-semibold tracking-[0.3em] text-purple-300">
             TEACHING IN PUBLIC
           </p>
   
           <h2
             id="linkedin-heading"
-            className="mt-3 text-center text-4xl font-bold gradient-text"
+            className="gradient-text mt-3 text-center text-3xl font-bold sm:text-4xl"
           >
             Technical content & conversations
           </h2>
@@ -42,7 +42,7 @@ const posts = [
             lessons through demos, videos, and community conversations.
           </p>
   
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
               <article
                 key={post.activityId}
@@ -51,7 +51,7 @@ const posts = [
                 <iframe
                   src={`https://www.linkedin.com/embed/feed/update/urn:li:activity:${post.activityId}`}
                   title={post.title}
-                  className="h-[500px] w-full border-0 bg-white"
+                  className="h-[420px] w-full border-0 bg-white sm:h-[500px]"
                   loading="lazy"
                   allowFullScreen
                 />
