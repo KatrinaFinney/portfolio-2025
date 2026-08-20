@@ -6,6 +6,13 @@
 body {
   background-color: #191a22;
   color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+img,
+iframe,
+canvas {
+  max-width: 100%;
 }
 
 
@@ -20,6 +27,13 @@ body {
   background: linear-gradient(45deg, #ff9f43, #9b5de5);
   clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
   animation: floatShapes 6s ease-in-out infinite;
+}
+
+@media (max-width: 640px) {
+  .shape { width: 64px; height: 64px; }
+  .shape-small { width: 40px; height: 40px; }
+  .shape-medium { width: 52px; height: 52px; }
+  .shape-large { width: 84px; height: 84px; }
 }
 
 /* Varying Sizes for Depth Effect */

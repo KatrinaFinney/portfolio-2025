@@ -74,12 +74,12 @@ const projects: Project[] = [
 
 export default function FeaturedProjects() {
   return (
-    <div className="w-full max-w-6xl px-6 py-12">
+    <div className="w-full max-w-6xl px-4 sm:px-6">
       <p className="text-center text-sm font-semibold tracking-[0.3em] text-purple-300">
         SELECTED WORK
       </p>
 
-      <h2 className="mt-3 text-center text-4xl font-bold text-teal-400">
+      <h2 className="mt-3 text-center text-3xl font-bold text-teal-400 sm:text-4xl">
         Featured Projects
       </h2>
 
@@ -93,7 +93,7 @@ export default function FeaturedProjects() {
         {projects.map((project, index) => (
           <motion.article
             key={project.title}
-            className={`flex h-full flex-col rounded-xl border bg-gray-800 p-6 shadow-lg ${
+            className={`flex h-full flex-col rounded-xl border bg-gray-800 p-5 shadow-lg sm:p-6 ${
               index === 0
                 ? "border-teal-400/60"
                 : "border-white/10"
@@ -105,7 +105,7 @@ export default function FeaturedProjects() {
               {project.eyebrow}
             </p>
 
-            <h3 className="mt-3 text-2xl font-semibold text-white">
+            <h3 className="mt-3 text-xl font-semibold text-white sm:text-2xl">
               {project.title}
             </h3>
 
