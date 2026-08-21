@@ -48,7 +48,6 @@ const projects: Project[] = [
       "https://github.com/KatrinaFinney/vivea-health-backend",
     demoLink:
       "https://www.canva.com/design/DAGfoKQZLs0/c1KAMUoGS37oX8dfcpjYjA/watch",
-    liveAppLink: "https://viveahealth.co",
   },
   {
     title: "WebTriage",
