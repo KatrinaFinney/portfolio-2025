@@ -106,7 +106,7 @@ secure APIs, and human-centered products.
       
 
 
-      {/* GitHub Particle Visualization */}
+      {/* Interactive GitHub Cube */}
       <section className="border-glow fade-in relative mx-auto max-w-5xl overflow-hidden px-4 py-14 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-3xl text-center leading-relaxed text-gray-300">
   <p className="text-sm font-semibold tracking-[0.3em] text-purple-300">
@@ -114,18 +114,18 @@ secure APIs, and human-centered products.
   </p>
 
   <h2 className="gradient-text mt-3 text-3xl font-bold sm:text-4xl">
-    An interactive repository constellation
+    A glowing GitHub cube
   </h2>
 
   <p>
-    Each glowing node is a live repository from my GitHub profile.
-    Drag to rotate the constellation, scroll or pinch to zoom, and
-    click any node to open that project in a new tab.
+    Each glowing cubie represents one of my 26 most recently updated
+    GitHub repositories. Drag to rotate, scroll or pinch to zoom, and
+    select a cubie to open that project in a new tab.
   </p>
 
   <p className="mt-3 text-sm text-gray-400">
-    Tip: start with the bright pink nodes, then rotate to
-    uncover more projects.
+    Desktop: hover to preview a repository name, then click to open it.
+    Mobile: drag with one finger, pinch to zoom, and tap a cubie to explore.
   </p>
 </div>
 
